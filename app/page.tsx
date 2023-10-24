@@ -1,6 +1,6 @@
 "use client";
 
-import { HTMLProps, useRef, useEffect, useMemo, useState } from "react";
+import { HTMLProps, useState } from "react";
 import Image from "next/image";
 
 function Paragraph({
@@ -96,7 +96,7 @@ export default function Home() {
           >
             l'ECV digital
           </Link>
-          {" ;"}
+          {" ; "}
           j'ai également eu la chance de consacrer 2 ans à l'alternance, une
           expérience précieuse qui m'a permis de mettre en pratique mes
           connaissances théoriques.
