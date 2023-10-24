@@ -1,113 +1,155 @@
-import Image from 'next/image'
+"use client";
+
+import { HTMLProps, useRef, useEffect, useMemo, useState } from "react";
+
+function Paragraph({
+  children,
+  ref,
+  ...props
+}: HTMLProps<HTMLParagraphElement>) {
+  const [hover, setHover] = useState(false);
+
+  return (
+    <p
+      className={`text-white transition-opacity ${
+        hover ? "opacity-95" : "opacity-60"
+      }`}
+      onMouseEnter={() => {
+        if (!hover) {
+          setHover(true);
+        }
+      }}
+      {...props}
+    >
+      {children}
+    </p>
+  );
+}
+
+function Link({ children, ...props }: HTMLProps<HTMLAnchorElement>) {
+  return (
+    <a className="text-teal-300 border-b-2 border-teal-200" {...props}>
+      {children}
+    </a>
+  );
+}
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+    <main className="min-h-screen pt-32 p-16 bg-gradient-to-b from-[#000000] via-50% via-[#010208] to-90% to-[#122E52]">
+      <video
+        loop
+        autoPlay={true}
+        muted={true}
+        width="200"
+        height="100"
+        className={`absolute top-8 right-8 z-0 opacity-100`}
+      >
+        <source src="/me.webm" />
+      </video>
+      <h1 className="w-fit text-8xl p-5 mb-11 -ml-5 italic relative z-10 animate-fontWeight cursor-hi">
+        Hello !
+      </h1>
+
+      <div className="flex flex-col leading-relaxed gap-6 text-3xl">
+        <Paragraph>
+          Je suis Hubert Moncenis, un développeur web freelance avec plus de 5
+          ans d'expérience dans le développement d’applications web complexe.
+          Mon expertise gravite autour du monde du javascript/typescript de
+          manière fullstack, avec une petite préférence pour la partie front-end
+          et la recherche d’amélioration de l’expérience utilisateur.
+        </Paragraph>
+        <Paragraph>
+          En dehors de mon travail je participe à la mise en place de
+          l'évènement annuel tech{" "}
+          <Link href="https://bdxio.fr" target="_blank">
+            bdxio
+          </Link>
+          . Mais je pratique aussi le bmx depuis 10 ans, j’aime faire des
+          roadtrips avec mon van aménagé, danser dans les festivals de métal et
+          essayer de faire de la musique en rythme sur ma batterie. (pas
+          toujours facile 🥵)
+        </Paragraph>
+
+        <Paragraph>
+          La créativité de ma personnalité se reflète dans mon travail.
+          Véritable passionné de l’univers du développement, j’apporte toujours
+          de la rigueur dans la réalisation de chaque projet. De nature
+          empathique, je sais comprendre les besoins de mes collègues et de mes
+          clients, ce qui favorise la collaboration et la communication.
+        </Paragraph>
+
+        <Paragraph>
+          Au niveau de mon parcours académique, j’ai tout d’abord obtenu un{" "}
+          <Link
+            href="http://formation.univ-fcomte.fr/but/metiers-du-multimedia-et-de-linternet"
             target="_blank"
-            rel="noopener noreferrer"
           >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+            DUT MMI
+          </Link>
+          , avant de continuer avec la{" "}
+          <Link href="https://www.iut.u-bordeaux.fr/info/" target="_blank">
+            licence professionnelle DAWIN
+          </Link>
+          . J’ai soldé mes études par un master développement web à{" "}
+          <Link
+            href="https://www.ecv.fr/digital/mastere-developpement-web/"
+            target="_blank"
+          >
+            l'ECV digital
+          </Link>
+          {"; "}
+          J'ai également eu la chance de consacrer 2 ans à l'alternance, une
+          expérience précieuse qui m'a permis de mettre en pratique mes
+          connaissances théoriques.
+        </Paragraph>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+        <Paragraph>
+          En ce qui concerne mes compétences techniques, je suis constamment en
+          veille pour continuer à apprendre ou évoluer. Au vu de mes expériences
+          passées et des différents projets sur lequels j’ai pu intervenir, vous
+          pouvez penser à moi pour tout projet présentant une complexité métier
+          forte. Niveau technologie, j’ai plus d’expérience sur des stacks
+          javascript (avec Typescript idéalement). Pour la partie front, j’ai
+          une solide expérience avec les frameworks Vue.js et React, mais je
+          suis prêt à utiliser les outils qui conviennent le mieux à votre
+          projet.
+        </Paragraph>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+        <Paragraph>
+          Pour ce qui est des réalisations, j'ai pu intervenir sur des projets
+          avec une forte complexité métier (domaine médicale,
+          administration...). Ma philosophie de travail met l'utilisateur au
+          cœur de mes développements. Je m'efforce de concevoir des solutions
+          web intuitives et accessibles, tout en gardant à l'esprit l'importance
+          de la maintenance et de la responsabilité environnementale.
+        </Paragraph>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+        <Paragraph>
+          Si vous cherchez un développeur web passionné et compétent pour votre
+          prochain projet, je suis prêt à relever le défi. N'hésitez pas à me
+          contacter dès aujourd'hui pour discuter de vos besoins et pour
+          travailler ensemble à la bonne réalisation de votre prochaine
+          application. Vous pouvez me retrouver sur{" "}
+          <Link
+            href="https://www.malt.fr/profile/hubertmoncenis"
+            target="_blank"
+          >
+            Malt
+          </Link>
+          ,{" "}
+          <Link
+            href="https://www.linkedin.com/in/**hubert-moncenis-41703783/"
+            target="_blank"
+          >
+            Linkedin
+          </Link>{" "}
+          ou encore{" "}
+          <Link href="https://github.com/HubM" target="_blank">
+            Github
+          </Link>
+        </Paragraph>
       </div>
     </main>
-  )
+  );
 }
