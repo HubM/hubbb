@@ -12,14 +12,7 @@ function Paragraph({
 
   return (
     <p
-      className={`text-white transition-opacity ${
-        hover ? "opacity-95" : "opacity-60"
-      }`}
-      onMouseEnter={() => {
-        if (!hover) {
-          setHover(true);
-        }
-      }}
+      className={`text-white transition-opacity opacity-60 hover:opacity-95`}
       {...props}
     >
       {children}
