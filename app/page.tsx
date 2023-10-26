@@ -1,6 +1,6 @@
 "use client";
 
-import { HTMLProps, useState } from "react";
+import { HTMLProps } from "react";
 import Image from "next/image";
 
 function Paragraph({
@@ -8,8 +8,6 @@ function Paragraph({
   ref,
   ...props
 }: HTMLProps<HTMLParagraphElement>) {
-  const [hover, setHover] = useState(false);
-
   return (
     <p
       className={`text-white transition-opacity opacity-60 hover:opacity-95`}
