@@ -28,7 +28,7 @@ function Link({ children, ...props }: HTMLProps<HTMLAnchorElement>) {
 
 export default function Home() {
   return (
-    <main className="min-h-screen pt-32 p-16 bg-gradient-to-b from-[#000000] via-50% via-[#010208] to-90% to-[#122E52]">
+    <main className="min-h-screen pt-32 p-16 bg-gradient-to-b from-black via-50% via-[#010208] to-90% to-[#122E52]">
       <Image
         src="/me.gif"
         width={200}
@@ -40,7 +40,7 @@ export default function Home() {
         Hello !
       </h1>
 
-      <div className="flex flex-col leading-relaxed gap-6 text-xl md:leading-loose md:text-2xl lg:leading-relaxed lg:text-3xl  xl:max-w-screen-lg 2xl:max-w-screen-xl">
+      <div className="flex flex-col leading-relaxed gap-6 text-xl md:leading-loose md:text-2xl lg:leading-relaxed xl:max-w-screen-lg 2xl:max-w-screen-xl">
         <Paragraph>
           Je suis Hubert Moncenis, un développeur web freelance avec plus de 4
           ans d'expérience dans le développement d’applications web complexe.
