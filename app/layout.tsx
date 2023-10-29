@@ -1,6 +1,8 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Frank_Ruhl_Libre } from "next/font/google";
+import Link from "next/link";
+import Image from "next/image";
 
 const font = Frank_Ruhl_Libre({ subsets: ["latin"] });
 
@@ -40,6 +42,15 @@ export default function RootLayout({
         <meta name="theme-color" content="#ffffff" />
       </head>
       <body className={font.className} suppressHydrationWarning={true}>
+        <Link href="/">
+          <Image
+            src="/me.gif"
+            width={200}
+            height={100}
+            alt="Photo de profil de Hubert Moncenis"
+            className={`absolute xl:fixed top-2 right-0 md:top-12 md:right-12 z-0 opacity-100`}
+          />
+        </Link>
         {children}
       </body>
     </html>
