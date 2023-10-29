@@ -7,7 +7,7 @@ export function ExternalLink({
 }: HTMLProps<HTMLAnchorElement>) {
   return (
     <a
-      className="inline-flex items-center w-fit text-teal-300 border-b-2 border-teal-200"
+      className="inline-flex items-center w-fit text-teal-300 border-b-2 border-teal-200 print:text-black print:border-b-[1px] print:border-black"
       rel="noopener noreferrer"
       {...props}
     >

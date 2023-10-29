@@ -1,16 +1,9 @@
+"use client";
+
 import "./globals.css";
-import type { Metadata } from "next";
-import { Frank_Ruhl_Libre } from "next/font/google";
 import Link from "next/link";
 import Image from "next/image";
-
-const font = Frank_Ruhl_Libre({ subsets: ["latin"] });
-
-export const metadata: Metadata = {
-  title: "HM - Bienvenue",
-  description:
-    "Bienvenue sur la page de présentation de Hubert Moncenis, développeur web freelance",
-};
+import { fontBody } from "@/utils/fonts";
 
 export default function RootLayout({
   children,
@@ -41,17 +34,21 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
       </head>
-      <body className={font.className} suppressHydrationWarning={true}>
-        <Link href="/">
-          <Image
-            src="/me.gif"
-            width={200}
-            height={100}
-            alt="Photo de profil de Hubert Moncenis"
-            className={`absolute xl:fixed top-2 right-0 md:top-12 md:right-12 z-0 opacity-100`}
-          />
-        </Link>
-        {children}
+      <body className={fontBody.className} suppressHydrationWarning={true}>
+        <main className="min-h-screen pt-32 p-16 bg-gradient-to-b from-black via-50% via-[#010208] to-90% to-[#122E52] print:bg-white print:from-transparent print:to-transparent print:text-black print:p-8">
+          <Link href="/" className="print:hidden">
+            <Image
+              src="/me.gif"
+              width={200}
+              height={100}
+              alt="Photo de profil de Hubert Moncenis"
+              className={`absolute xl:fixed top-2 right-0 md:top-12 md:right-12 z-0 opacity-100 w-[200px] h-auto`}
+            />
+          </Link>
+          <section className="xl:max-w-screen-lg 2xl:max-w-screen-xl">
+            {children}
+          </section>
+        </main>
       </body>
     </html>
   );
