@@ -7,7 +7,12 @@ export function Paragraph({
   ...props
 }: HTMLProps<HTMLParagraphElement>) {
   return (
-    <p className={`text-white print:text-black ${className || ""}`} {...props}>
+    <p
+      className={`text-white print:text-black transition-opacity opacity-60 hover:opacity-95 print:transition-none print:opacity-95 ${
+        className || ""
+      }`}
+      {...props}
+    >
       {children}
     </p>
   );
