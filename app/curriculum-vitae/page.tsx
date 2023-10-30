@@ -78,7 +78,7 @@ export default function Curriculumvitae() {
           <div className="flex flex-col gap-8">
             <Dropdown
               title="Potentiel (beta gouv) | Développeur fullstack, Freelance |
-                Remote | 2018 - Aujourd'hui"
+                Remote | 2022 - Aujourd'hui"
             >
               <Paragraph>
                 <ExternalLink href="https://beta.gouv.fr/">
@@ -189,6 +189,7 @@ export default function Curriculumvitae() {
             </Dropdown>
           </div>
         </Section>
+        <Section title="Compétences"></Section>
         <Section title="Études">
           <div className="transition-opacity opacity-60 hover:opacity-95 print:transition-none print:opacity-95 flex flex-col gap-2">
             <Heading level={3} className=" flex items-center gap-2">
