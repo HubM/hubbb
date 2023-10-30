@@ -42,7 +42,7 @@ export default function RootLayout({
               width={200}
               height={100}
               alt="Photo de profil de Hubert Moncenis"
-              className={`absolute xl:fixed top-2 right-0 md:top-12 md:right-12 z-0 opacity-100 w-[200px] h-auto`}
+              className={`absolute xl:fixed top-2 right-0 md:top-12 md:right-12 z-0 opacity-100 w-[200px] h-auto hover:scale-110 transition-transform`}
             />
           </Link>
           <section className="xl:max-w-screen-lg 2xl:max-w-screen-xl">
