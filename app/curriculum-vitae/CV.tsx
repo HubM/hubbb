@@ -24,9 +24,9 @@ function Section({
     >
       <Heading
         level={2}
-        className={`min-w-[200px] font-light text-sm tracking-[2px] uppercase transition-opacity ${
+        className={`min-w-[200px] font-light text-sm print:text-2xl tracking-[2px] uppercase print:normal-case print:tracking-normal transition-opacity ${
           isFocus ? "opacity-95" : "opacity-60"
-        }`}
+        } print:opacity-100  ${title === "Profil" && "print:hidden"} `}
       >
         {title}
       </Heading>
@@ -51,7 +51,7 @@ function Dropdown({
     >
       <Heading
         level={3}
-        className={`cursor-pointer flex items-center gap-2 print:block ${
+        className={`cursor-pointer flex items-center gap-2 print:block print:text-lg print:font-semibold ${
           isOpen && "mb-4"
         }`}
         onClick={() => setOpen(!isOpen)}
@@ -74,9 +74,9 @@ export function Curriculumvitae() {
       <header>
         <Heading level={1}>Hubert Moncenis</Heading>
       </header>
-      <div className="flex flex-col leading-relaxed gap-10 text-base print:text-base">
+      <div className="flex flex-col leading-relaxed gap-10 print:gap-6 text-base print:text-base">
         <Section title="Profil">
-          <Paragraph className="italic !text-xl">
+          <Paragraph className="italic text-xl print:text-lg print:leading-normal">
             Le challenge de prendre part à la conception et au développement de
             produits à forte valeur ajoutée est l’essence même de mon métier de
             développeur. C'est dans cette optique que je m'efforce de produire
@@ -84,12 +84,12 @@ export function Curriculumvitae() {
           </Paragraph>
         </Section>
         <Section title="Expériences">
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-8 print:gap-4">
             <Dropdown
               title="Potentiel (beta gouv) | Développeur fullstack, Freelance |
-                Remote | 2022 - Aujourd'hui"
+                2022 - Aujourd'hui"
             >
-              <Paragraph>
+              <Paragraph className="print:hidden">
                 <ExternalLink href="https://beta.gouv.fr/">
                   beta.gouv
                 </ExternalLink>{" "}
@@ -122,7 +122,7 @@ export function Curriculumvitae() {
               </div>
             </Dropdown>
             <Dropdown title="Webians | Développeur fullstack, CDI | Bordeaux | 2018 - 2022">
-              <Paragraph>
+              <Paragraph className="print:hidden">
                 <ExternalLink href="https://webians.fr/">Webians</ExternalLink>{" "}
                 est une agence qui crée des applications web et des
                 design-systems en se basant les méthodes agiles pour organiser
@@ -166,8 +166,11 @@ export function Curriculumvitae() {
                 </ul>
               </div>
             </Dropdown>
-            <Dropdown title="WSB | Développeur front-end, Alternance | Bordeaux | 2017 - 2018">
-              <Paragraph>
+            <Dropdown
+              title="WSB | Développeur front-end, Alternance | Bordeaux | 2017 - 2018"
+              className="print:break-before-page"
+            >
+              <Paragraph className="print:hidden">
                 <ExternalLink href="https://www.wsb-agency.com/">
                   WSB
                 </ExternalLink>{" "}
@@ -199,7 +202,7 @@ export function Curriculumvitae() {
           </div>
         </Section>
         <Section title="Compétences">
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-8 print:gap-4">
             <Dropdown title="Hard skills">
               <ul>
                 <li>Design system : Atomic design / Storybook</li>
@@ -230,7 +233,7 @@ export function Curriculumvitae() {
           </div>
         </Section>
         <Section title="Études">
-          <div className="transition-opacity opacity-60 hover:opacity-95 print:transition-none print:opacity-95 flex flex-col gap-2">
+          <div className="transition-opacity opacity-60 hover:opacity-95 print:transition-none print:opacity-95 flex flex-col gap-2 mt-4 lg:mt-0">
             <Paragraph>
               Master développement web (alternance) | ECV Digital Bordeaux |
               2017-2019
