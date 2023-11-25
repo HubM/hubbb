@@ -85,7 +85,7 @@ export default function Home() {
           </ExternalLink>
           ,{" "}
           <ExternalLink
-            href="https://www.linkedin.com/in/**hubert-moncenis-41703783/"
+            href="https://www.linkedin.com/in/**hubert-moncenis/"
             target="_blank"
           >
             Linkedin
