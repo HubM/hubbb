@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Heading from "@/components/Heading";
+import { Heading } from "@/components/Heading";
 import { ExternalLink } from "@/components/ExternalLink";
 import { Paragraph } from "@/components/Paragraph";
 import { Metadata } from "next";

@@ -2,7 +2,7 @@
 import React, { HTMLProps, useState } from "react";
 import { PiEyeBold, PiEyeClosedBold } from "react-icons/pi";
 
-import Heading from "@/components/Heading";
+import { Heading } from "@/components/Heading";
 import { Paragraph } from "@/components/Paragraph";
 import { ExternalLink } from "@/components/ExternalLink";
 
